@@ -32,6 +32,12 @@ apply plugin: 'io.spring.dependency-management'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+kotlin {
+	experimental {
+		coroutines 'enable'
+	}
+}
+
 compileKotlin {
 	kotlinOptions.jvmTarget = "1.8"
 }
