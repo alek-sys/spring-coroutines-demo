@@ -1,7 +1,8 @@
 buildscript {
 	ext {
 		kotlinVersion = '1.1.2-2'
-		springBootVersion = '2.0.0.M1'
+		springBootVersion = '2.0.0.M4'
+		kotlinCoroutinesVersion = '0.19.1'
 	}
 	repositories {
 		mavenCentral()
@@ -50,10 +51,6 @@ repositories {
     jcenter()
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
-
-	flatDir {
-		dirs 'libs'
-	}
 }
 
 dependencies {
@@ -64,11 +61,11 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     compile("io.github.microutils:kotlin-logging:1.4.4")
 
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:0.15")
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:0.15")
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:0.15-SNAPSHOT")
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinCoroutinesVersion}")
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:${kotlinCoroutinesVersion}")
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:${kotlinCoroutinesVersion}")
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('io.projectreactor.addons:reactor-test:3.1.0.M1')
+	testCompile('io.projectreactor:reactor-test:3.1.0.RELEASE')
 	testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo:2.0.0')
 }
